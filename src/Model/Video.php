@@ -2,6 +2,8 @@
 
 namespace Alura\Solid\Model;
 
+use Alura\Solid\Model\Slug;
+
 class Video
 {
     /** @var bool */
@@ -30,6 +32,7 @@ class Video
 
     public function recuperarUrl(): string
     {
-        return 'http://videos.alura.com.br/' . http_build_query(['nome' => $this->nome]);
+        $url = new Slug($this->categoria);
+        return 'http://videos.alura.com.br/' . $url;
     }
 }
